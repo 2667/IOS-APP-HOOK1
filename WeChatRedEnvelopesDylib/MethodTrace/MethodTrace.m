@@ -13,7 +13,7 @@
 @implementation MethodTrace : NSObject
 
 +(void)addClassTrace:(NSString *)className{
-    [self addClassTrace:className methodList:nil];
+    [self addClassTrace:className methodList:nil];//go
 }
 
 +(void)addClassTrace:(NSString *)className methodName:(NSString *)methodName{
@@ -21,7 +21,7 @@
 }
 
 +(void)addClassTrace:(NSString *)className methodList:(NSArray *)methodList{
-    Class targetClass = objc_getClass([className UTF8String]);
+    Class targetClass = objc_getClass([className UTF8String]);//go
     if(targetClass != nil){
         [ANYMethodLog logMethodWithClass:NSClassFromString(className) condition:^BOOL(SEL sel) {
             return (methodList == nil || methodList.count == 0) ? YES : [methodList containsObject:NSStringFromSelector(sel)];
@@ -54,13 +54,13 @@
 
 static __attribute__((constructor)) void entry(){
     NSString* configFilePath = [[NSBundle mainBundle] pathForResource:@"MethodTraceConfig" ofType:@"plist"];
-    if(configFilePath == nil){
+    if(configFilePath == nil){//go
         NSLog(@"MethodTraceConfig.plist file is not exits!!!");
         return;
     }
     NSMutableDictionary *configItem = [NSMutableDictionary dictionaryWithContentsOfFile:configFilePath];
     BOOL isEnable = [[configItem valueForKey:@"ENABLE_METHODTRACE"] boolValue];
-    if(isEnable){
+    if(isEnable){//go
         NSDictionary* classListDictionary = [configItem valueForKey:@"TARGET_CLASS_LIST"];
         for (NSString* className in classListDictionary.allKeys) {
             Class targetClass = objc_getClass([className UTF8String]);

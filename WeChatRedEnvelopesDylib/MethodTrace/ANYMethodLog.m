@@ -158,7 +158,7 @@ void qhd_logMethod(Class aClass, BOOL(^condition)(SEL sel));
 BOOL qhd_isInBlackList(NSString *methodName) {
     static NSArray *defaultBlackList = nil;
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    dispatch_once(&onceToken, ^{//go
         defaultBlackList = @[/*UIViewController的:*/@".cxx_destruct", @"dealloc", @"_isDeallocating", @"release", @"autorelease", @"retain", @"Retain", @"_tryRetain", @"copy", /*UIView的:*/ @"nsis_descriptionOfVariable:", /*NSObject的:*/@"respondsToSelector:", @"class", @"methodSignatureForSelector:", @"allowsWeakReference", @"retainWeakReference", @"init", @"forwardInvocation:"];
     });
     return ([defaultBlackList containsObject:methodName]);
@@ -188,7 +188,7 @@ BOOL qhd_isInBlackList(NSString *methodName) {
 NSDictionary *qhd_canHandleTypeDic() {
     static NSDictionary *dic = nil;
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    dispatch_once(&onceToken, ^{//go
         dic = @{[NSString stringWithUTF8String:@encode(char)] : @"(char)",
                 [NSString stringWithUTF8String:@encode(int)] : @"(int)",
                 [NSString stringWithUTF8String:@encode(short)] : @"(short)",
@@ -222,20 +222,20 @@ NSDictionary *qhd_canHandleTypeDic() {
 
 //根据定义的类型的判断是否能处理
 BOOL qhd_isCanHandle(NSString *typeEncode) {
-    return [qhd_canHandleTypeDic().allKeys containsObject:typeEncode];
+    return [qhd_canHandleTypeDic().allKeys containsObject:typeEncode];//go
 }
 
 //创建一个新的selector
 SEL qhd_createNewSelector(SEL originalSelector) {
     NSString *oldSelectorName = NSStringFromSelector(originalSelector);
-    NSString *newSelectorName = [NSString stringWithFormat:@"qhd_%@", oldSelectorName];
+    NSString *newSelectorName = [NSString stringWithFormat:@"qhd_%@", oldSelectorName];//go
     SEL newSelector = NSSelectorFromString(newSelectorName);
     return newSelector;
 }
 
 //是否struct类型
 BOOL qhd_isStructType(const char *argumentType) {
-    NSString *typeString = [NSString stringWithUTF8String:argumentType];
+    NSString *typeString = [NSString stringWithUTF8String:argumentType];//go
     return ([typeString hasPrefix:@"{"] && [typeString hasSuffix:@"}"]);
 }
 
@@ -263,7 +263,7 @@ BOOL isCGAffineTransform(const char *type) {return [qhd_structName(type) isEqual
 BOOL qhd_isCanHook(Method method, const char *returnType) {
     
     //若在黑名单中则不处理
-    NSString *selectorName = NSStringFromSelector(method_getName(method));
+    NSString *selectorName = NSStringFromSelector(method_getName(method));//go
     if (qhd_isInBlackList(selectorName)) {
         return NO;
     }
@@ -280,7 +280,7 @@ BOOL qhd_isCanHook(Method method, const char *returnType) {
     }
     for(int k = 2 ; k < method_getNumberOfArguments(method); k ++) {
         char argument[250];
-        memset(argument, 0, sizeof(argument));
+        memset(argument, 0, sizeof(argument));//go
         method_getArgumentType(method, k, argument, sizeof(argument));
         NSString *argumentString = [NSString stringWithUTF8String:argument];
         if (!qhd_isCanHandle(argumentString)) {
@@ -303,7 +303,7 @@ id getReturnValue(NSInvocation *invocation){
         [invocation getReturnValue:&val]; \
         return @(val); \
     } while (0)
-    if (strcmp(returnType, @encode(id)) == 0 || strcmp(returnType, @encode(Class)) == 0 || strcmp(returnType, @encode(void (^)(void))) == 0) {
+    if (strcmp(returnType, @encode(id)) == 0 || strcmp(returnType, @encode(Class)) == 0 || strcmp(returnType, @encode(void (^)(void))) == 0) {//go
         __autoreleasing id returnObj;
         [invocation getReturnValue:&returnObj];
         return returnObj;
@@ -356,7 +356,7 @@ NSArray *qhd_method_arguments(NSInvocation *invocation) {
         const char *argumentType = [methodSignature getArgumentTypeAtIndex:i];
         id arg = nil;
         
-        if (qhd_isStructType(argumentType)) {
+        if (qhd_isStructType(argumentType)) {//go
             #define GET_STRUCT_ARGUMENT(_type)\
                 if (is##_type(argumentType)) {\
                     _type arg_temp;\
@@ -425,7 +425,7 @@ NSArray *qhd_method_arguments(NSInvocation *invocation) {
         }
         [argList addObject:arg];
     }
-    return argList;
+    return argList;//go
 }
 
 //forwardInvocation:方法的新IMP
@@ -434,7 +434,7 @@ void qhd_forwardInvocation(id target, SEL selector, NSInvocation *invocation) {
     
     SEL originSelector = invocation.selector;
     
-    NSString *originSelectorString = NSStringFromSelector(originSelector);
+    NSString *originSelectorString = NSStringFromSelector(originSelector);//go
     
     //友盟的UMAOCTools会产生问题
     if ([originSelectorString rangeOfString:@"hook_"].location != NSNotFound) {
@@ -458,12 +458,12 @@ void qhd_forwardInvocation(id target, SEL selector, NSInvocation *invocation) {
     
     [block rundAfter:target sel:originSelector args:argList interval:interval deep:deep retValue:getReturnValue(invocation)];
     
-    deep--;
+    deep--;//go
 }
 
 //替换方法
 BOOL qhd_replaceMethod(Class cls, SEL originSelector, char *returnType) {
-    Method originMethod = class_getInstanceMethod(cls, originSelector);
+    Method originMethod = class_getInstanceMethod(cls, originSelector);//go
     if (originMethod == nil) {
         return NO;
     }
@@ -546,7 +546,7 @@ void qhd_logMethod(Class aClass, BOOL(^condition)(SEL sel)) {
         return;
     #endif
     
-    if (aClass) {
+    if (aClass) {//go
         AMLBlock *block = [[AMLBlock alloc] init];
         block.targetClassName = NSStringFromClass(aClass);
         block.condition = condition;
@@ -555,7 +555,7 @@ void qhd_logMethod(Class aClass, BOOL(^condition)(SEL sel)) {
         [SHARED_ANYMETHODLOG setAMLBlock:block forKey:block.targetClassName];
     }
     
-    qhd_logMethod(aClass, condition);
+    qhd_logMethod(aClass, condition);//go
     
     //获取元类，处理类方法。（注意获取元类是用object_getClass，而不是class_getSuperclass）
     Class metaClass = object_getClass(aClass);
@@ -565,7 +565,7 @@ void qhd_logMethod(Class aClass, BOOL(^condition)(SEL sel)) {
 + (instancetype)sharedANYMethodLog {
     static ANYMethodLog *_sharedANYMethodLog = nil;
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    dispatch_once(&onceToken, ^{//go
         _sharedANYMethodLog = [[self alloc] init];
         _sharedANYMethodLog.blockCache = [NSMutableDictionary dictionary];
     });
@@ -573,7 +573,7 @@ void qhd_logMethod(Class aClass, BOOL(^condition)(SEL sel)) {
 }
 
 - (void)setAMLBlock:(AMLBlock *)block forKey:(NSString *)aKey {
-    @synchronized (self) {
+    @synchronized (self) {//go
         [self.blockCache setObject:block forKey:aKey];
     }
 }
@@ -581,7 +581,7 @@ void qhd_logMethod(Class aClass, BOOL(^condition)(SEL sel)) {
 - (AMLBlock *)blockWithTarget:(id)target {
     Class class = [target class];
     AMLBlock *block = [self.blockCache objectForKey:NSStringFromClass(class)];
-    while (block == nil) {
+    while (block == nil) {//go
         class = [class superclass];
         if (class == nil) {
             break;

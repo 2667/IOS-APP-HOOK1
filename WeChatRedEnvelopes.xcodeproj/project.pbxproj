@@ -12,7 +12,6 @@
 		5FA6FE001FCFA55F00C0C55A /* libWeChatRedEnvelopesDylib.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5FA6FDFF1FCFA55F00C0C55A /* libWeChatRedEnvelopesDylib.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5FA6FE051FCFA55F00C0C55A /* Cycript.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA6FE041FCFA55F00C0C55A /* Cycript.framework */; };
 		5FA6FE071FCFA55F00C0C55A /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA6FE061FCFA55F00C0C55A /* JavaScriptCore.framework */; };
-		5FA6FE091FCFA55F00C0C55A /* RevealServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA6FE081FCFA55F00C0C55A /* RevealServer.framework */; };
 		5FA6FE0B1FCFA55F00C0C55A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA6FE0A1FCFA55F00C0C55A /* Foundation.framework */; };
 		5FA6FE0D1FCFA55F00C0C55A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA6FE0C1FCFA55F00C0C55A /* UIKit.framework */; };
 		5FA6FE111FCFA55F00C0C55A /* ANYMethodLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FA6FE101FCFA55F00C0C55A /* ANYMethodLog.h */; };
@@ -25,6 +24,15 @@
 		5FA6FE241FCFA55F00C0C55A /* WeChatRedEnvelopesDylib.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5FA6FE231FCFA55F00C0C55A /* WeChatRedEnvelopesDylib.mm */; };
 		5FA6FE261FCFA55F00C0C55A /* WeChatRedEnvelopesDylib.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FA6FE251FCFA55F00C0C55A /* WeChatRedEnvelopesDylib.h */; };
 		5FA6FE281FCFA55F00C0C55A /* WeChatRedEnvelopesDylib.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA6FE271FCFA55F00C0C55A /* WeChatRedEnvelopesDylib.m */; };
+		5FA6FE321FCFA60500C0C55A /* WeChat.app in Resources */ = {isa = PBXBuildFile; fileRef = 5FA6FE311FCFA60400C0C55A /* WeChat.app */; };
+		5FA6FE391FCFD39500C0C55A /* CMessageMgrTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FA6FE371FCFD39500C0C55A /* CMessageMgrTool.h */; };
+		5FA6FE3A1FCFD39500C0C55A /* CMessageMgrTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA6FE381FCFD39500C0C55A /* CMessageMgrTool.m */; };
+		5FA6FE3F1FD043AD00C0C55A /* CaptainHook.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FA6FE3E1FD043AC00C0C55A /* CaptainHook.h */; };
+		5FA6FE421FD14D7C00C0C55A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA6FE0C1FCFA55F00C0C55A /* UIKit.framework */; };
+		5FA6FE441FD14D8600C0C55A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA6FE431FD14D8500C0C55A /* CoreGraphics.framework */; };
+		5FA6FE461FD14D9100C0C55A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA6FE451FD14D9100C0C55A /* QuartzCore.framework */; };
+		5FA6FE481FD14D9B00C0C55A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA6FE471FD14D9B00C0C55A /* CFNetwork.framework */; };
+		5FA6FE4A1FD14DA900C0C55A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA6FE491FD14DA900C0C55A /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,10 +77,19 @@
 		5FA6FE1B1FCFA55F00C0C55A /* AntiAntiDebug.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AntiAntiDebug.m; path = AntiAntiDebug/AntiAntiDebug.m; sourceTree = "<group>"; };
 		5FA6FE1E1FCFA55F00C0C55A /* fishhook.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fishhook.c; path = fishhook/fishhook.c; sourceTree = "<group>"; };
 		5FA6FE201FCFA55F00C0C55A /* fishhook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = fishhook.h; path = fishhook/fishhook.h; sourceTree = "<group>"; };
-		5FA6FE221FCFA55F00C0C55A /* WeChatRedEnvelopesDylib.xm */ = {isa = PBXFileReference; lastKnownFileType = text; path = WeChatRedEnvelopesDylib.xm; sourceTree = "<group>"; };
+		5FA6FE221FCFA55F00C0C55A /* WeChatRedEnvelopesDylib.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WeChatRedEnvelopesDylib.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		5FA6FE231FCFA55F00C0C55A /* WeChatRedEnvelopesDylib.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WeChatRedEnvelopesDylib.mm; sourceTree = "<group>"; };
 		5FA6FE251FCFA55F00C0C55A /* WeChatRedEnvelopesDylib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeChatRedEnvelopesDylib.h; sourceTree = "<group>"; };
 		5FA6FE271FCFA55F00C0C55A /* WeChatRedEnvelopesDylib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeChatRedEnvelopesDylib.m; sourceTree = "<group>"; };
+		5FA6FE311FCFA60400C0C55A /* WeChat.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = WeChat.app; path = TargetApp/WeChat.app; sourceTree = "<group>"; };
+		5FA6FE371FCFD39500C0C55A /* CMessageMgrTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMessageMgrTool.h; sourceTree = "<group>"; };
+		5FA6FE381FCFD39500C0C55A /* CMessageMgrTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMessageMgrTool.m; sourceTree = "<group>"; };
+		5FA6FE3E1FD043AC00C0C55A /* CaptainHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptainHook.h; sourceTree = "<group>"; };
+		5FA6FE401FD14D5300C0C55A /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RevealServer.framework; sourceTree = "<group>"; };
+		5FA6FE431FD14D8500C0C55A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5FA6FE451FD14D9100C0C55A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5FA6FE471FD14D9B00C0C55A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		5FA6FE491FD14DA900C0C55A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +97,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FA6FE4A1FD14DA900C0C55A /* libz.tbd in Frameworks */,
+				5FA6FE481FD14D9B00C0C55A /* CFNetwork.framework in Frameworks */,
+				5FA6FE461FD14D9100C0C55A /* QuartzCore.framework in Frameworks */,
+				5FA6FE441FD14D8600C0C55A /* CoreGraphics.framework in Frameworks */,
+				5FA6FE421FD14D7C00C0C55A /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +110,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FA6FE071FCFA55F00C0C55A /* JavaScriptCore.framework in Frameworks */,
-				5FA6FE091FCFA55F00C0C55A /* RevealServer.framework in Frameworks */,
 				5FA6FE051FCFA55F00C0C55A /* Cycript.framework in Frameworks */,
 				5FA6FE0B1FCFA55F00C0C55A /* Foundation.framework in Frameworks */,
 				5FA6FE0D1FCFA55F00C0C55A /* UIKit.framework in Frameworks */,
@@ -130,6 +151,7 @@
 		5FA6FDF61FCFA55E00C0C55A /* TargetApp */ = {
 			isa = PBXGroup;
 			children = (
+				5FA6FE311FCFA60400C0C55A /* WeChat.app */,
 				5FA6FDF71FCFA55E00C0C55A /* put ipa or app here */,
 			);
 			name = TargetApp;
@@ -138,6 +160,10 @@
 		5FA6FE031FCFA55F00C0C55A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5FA6FE491FD14DA900C0C55A /* libz.tbd */,
+				5FA6FE471FD14D9B00C0C55A /* CFNetwork.framework */,
+				5FA6FE451FD14D9100C0C55A /* QuartzCore.framework */,
+				5FA6FE431FD14D8500C0C55A /* CoreGraphics.framework */,
 				5FA6FE041FCFA55F00C0C55A /* Cycript.framework */,
 				5FA6FE061FCFA55F00C0C55A /* JavaScriptCore.framework */,
 				5FA6FE081FCFA55F00C0C55A /* RevealServer.framework */,
@@ -150,10 +176,14 @@
 		5FA6FE0E1FCFA55F00C0C55A /* WeChatRedEnvelopesDylib */ = {
 			isa = PBXGroup;
 			children = (
+				5FA6FE401FD14D5300C0C55A /* RevealServer.framework */,
+				5FA6FE3E1FD043AC00C0C55A /* CaptainHook.h */,
 				5FA6FE221FCFA55F00C0C55A /* WeChatRedEnvelopesDylib.xm */,
 				5FA6FE231FCFA55F00C0C55A /* WeChatRedEnvelopesDylib.mm */,
 				5FA6FE251FCFA55F00C0C55A /* WeChatRedEnvelopesDylib.h */,
 				5FA6FE271FCFA55F00C0C55A /* WeChatRedEnvelopesDylib.m */,
+				5FA6FE371FCFD39500C0C55A /* CMessageMgrTool.h */,
+				5FA6FE381FCFD39500C0C55A /* CMessageMgrTool.m */,
 				5FA6FE0F1FCFA55F00C0C55A /* MethodTrace */,
 				5FA6FE1A1FCFA55F00C0C55A /* AntiAntiDebug */,
 				5FA6FE1D1FCFA55F00C0C55A /* fishhook */,
@@ -207,7 +237,9 @@
 			files = (
 				5FA6FE111FCFA55F00C0C55A /* ANYMethodLog.h in Headers */,
 				5FA6FE151FCFA55F00C0C55A /* MethodTrace.h in Headers */,
+				5FA6FE391FCFD39500C0C55A /* CMessageMgrTool.h in Headers */,
 				5FA6FE211FCFA55F00C0C55A /* fishhook.h in Headers */,
+				5FA6FE3F1FD043AD00C0C55A /* CaptainHook.h in Headers */,
 				5FA6FE261FCFA55F00C0C55A /* WeChatRedEnvelopesDylib.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FA6FE321FCFA60500C0C55A /* WeChat.app in Resources */,
 				5FA6FDF81FCFA55E00C0C55A /* put ipa or app here in Resources */,
 				5FA6FDF51FCFA55E00C0C55A /* MethodTraceConfig.plist in Resources */,
 			);
@@ -357,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FA6FE3A1FCFD39500C0C55A /* CMessageMgrTool.m in Sources */,
 				5FA6FE1C1FCFA55F00C0C55A /* AntiAntiDebug.m in Sources */,
 				5FA6FE171FCFA55F00C0C55A /* MethodTrace.m in Sources */,
 				5FA6FE1F1FCFA55F00C0C55A /* fishhook.c in Sources */,
@@ -485,6 +519,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SLRDBXE3XE;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				ENABLE_BITCODE = NO;
@@ -495,6 +530,7 @@
 					"$(MonkeyDevPath)/Frameworks/**",
 					"$(MonkeyDevPath)/Librarys/**",
 					"$(MonkeyDevTheosPath)/vendor/lib",
+					"$(PROJECT_DIR)/WeChatRedEnvelopesDylib",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -527,6 +563,8 @@
 					"-weak_library",
 					"/usr/lib/libstdc++.dylib",
 					"-lsubstrate",
+					"-ObjC",
+					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -539,6 +577,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = SLRDBXE3XE;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				ENABLE_BITCODE = NO;
@@ -549,6 +588,7 @@
 					"$(MonkeyDevPath)/Frameworks/**",
 					"$(MonkeyDevPath)/Librarys/**",
 					"$(MonkeyDevTheosPath)/vendor/lib",
+					"$(PROJECT_DIR)/WeChatRedEnvelopesDylib",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -580,6 +620,8 @@
 					"-weak_library",
 					"/usr/lib/libstdc++.dylib",
 					"-lsubstrate",
+					"-ObjC",
+					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -590,13 +632,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SLRDBXE3XE;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = WeChatRedEnvelopes/Info.plist;
 				MONKEYDEV_CLASS_DUMP = NO;
 				MONKEYDEV_RESTORE_SYMBOL = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				PODS_CONFIGURATION_BUILD_DIR = "$BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sjk.-WeChatRedEnvelopes.WeChatRedEnvelopes";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sjk.WeChatRedEnvelopes.WeChatRedEnvelopes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -606,13 +655,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SLRDBXE3XE;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = WeChatRedEnvelopes/Info.plist;
 				MONKEYDEV_CLASS_DUMP = NO;
 				MONKEYDEV_RESTORE_SYMBOL = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				PODS_CONFIGURATION_BUILD_DIR = "$BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sjk.-WeChatRedEnvelopes.WeChatRedEnvelopes";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sjk.WeChatRedEnvelopes.WeChatRedEnvelopes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
